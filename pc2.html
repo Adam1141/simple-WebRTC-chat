@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+			integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script defer src="./js/pc2.js"></script>
+		<title>PC2 - WebRTC</title>
+	</head>
+
+	<body class="flex flex-col items-stretch gap-y-3 max-w-4xl mx-auto px-4">
+		<h1 class="text-center text-3xl font-bold my-4">PC2 - WebRTC</h1>
+		<div class="flex flex-wrap gap-4">
+			<div class="flex flex-col gap-y-4 flex-1">
+				<textarea
+					id="to-send-box"
+					class="border-2 border-b-gray-100 h-64 rounded-md p-2"
+					name="Text1"
+					cols="40"
+					rows="5"
+					placeholder="write message"
+					disabled
+				></textarea>
+				<button
+					id="btn-send"
+					class="bg-indigo-600 rounded-md py-2 px-4 mb-8 text-neutral-200 hover:opacity-70 transition-all duration-500 disabled:hidden"
+					disabled
+				>
+					SEND
+				</button>
+			</div>
+			<textarea
+				id="message-box"
+				class="border-2 border-b-gray-100 h-64 rounded-md p-2 flex-1 resize-none"
+				name="Text1"
+				cols="40"
+				rows="5"
+				placeholder="received messages from PC1"
+				disabled
+			></textarea>
+		</div>
+
+		<div class="relative">
+			<textarea
+				id="local-sdp-text"
+				class="border-2 border-b-gray-100 h-52 rounded-md p-2 w-full"
+				placeholder="local SDP(answer)"
+				disabled
+			></textarea>
+			<i
+				id="copy-local-sdp"
+				class="fa-solid fa-copy absolute bottom-5 right-5 text-2xl hover:cursor-pointer hover:opacity-60 transition duration-300"
+				title="copy answer"
+			></i>
+		</div>
+
+		<div class="relative">
+			<textarea
+				id="remote-sdp-text"
+				class="border-2 border-b-gray-100 h-52 w-full rounded-md p-2 peer"
+				placeholder="remote SDP(offer)"
+			></textarea>
+			<i
+				id="paste-remote-sdp"
+				class="fa-solid fa-paste absolute bottom-5 right-5 text-2xl hover:cursor-pointer invisible peer-focus:visible transition-all duration-300"
+				title="paste offer"
+			></i>
+		</div>
+		<button
+			id="add-remote-sdp"
+			class="bg-indigo-600 rounded-md py-2 px-4 text-neutral-200 hover:opacity-70 transition-all duration-500"
+		>
+			ADD REMOTE
+		</button>
+	</body>
+</html>
